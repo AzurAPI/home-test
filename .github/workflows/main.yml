@@ -19,7 +19,11 @@ jobs:
       - run: git clone https://github.com/google/docsy
       - run: git submodule update --init --recursive
 
-      - run: hugo
+      - name: Build Site
+        uses: chabad360/hugo-actions@master
+        with:
+          hugoVersion: extended_0.58.3
+          args: --cleanDestinationDir
 
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master

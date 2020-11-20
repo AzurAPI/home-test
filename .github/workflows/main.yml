@@ -15,12 +15,13 @@ jobs:
         with:
           submodules: recursive
       - run: npm install
-      - run: git submodule update --init --recursive
       - run: cd themes
       - run: git clone https://github.com/google/docsy
+      - run: git submodule update --init --recursive
       - run: cd .
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
           hugoVersion: extended_0.58.3
+          args: --cleanDestinationDir

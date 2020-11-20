@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@master
         with:
           submodules: true
-          args: --recurse-submodules
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master
         with:
           githubToken: ${{ secrets.PERSONAL_TOKEN }}
+          args: --recurse-submodules

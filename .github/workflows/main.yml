@@ -18,8 +18,8 @@ jobs:
       - run: cd themes
       - run: git clone https://github.com/google/docsy
       - run: git submodule update --init --recursive
-      - name: Build Site
-        uses: chabad360/hugo-actions@master
+
+      - run: hugo
 
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master

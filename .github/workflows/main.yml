@@ -19,15 +19,32 @@ jobs:
       - run: git clone https://github.com/google/docsy
       - run: git submodule update --init --recursive
 
-      - name: Build Site
-        uses: chabad360/hugo-actions@master
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          hugoVersion: extended_0.58.3
-          args: --cleanDestinationDir
+          hugo-version: '0.74.3'
+          extended: true
 
-      - name: Publish Site
-        uses: chabad360/hugo-gh-pages@master
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          githubToken: ${{ secrets.PERSONAL_TOKEN }}
-          hugoVersion: extended_0.58.3
-          args: --cleanDestinationDir
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
+
+
+      # - name: Build Site
+      #   uses: chabad360/hugo-actions@master
+      #   with:
+      #     hugoVersion: extended_0.58.3
+      #     args: --cleanDestinationDir
+      #
+      # - name: Publish Site
+      #   uses: chabad360/hugo-gh-pages@master
+      #   with:
+      #     githubToken: ${{ secrets.PERSONAL_TOKEN }}
+      #     hugoVersion: extended_0.58.3
+      #     args: --cleanDestinationDir

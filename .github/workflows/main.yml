@@ -11,14 +11,15 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           submodules: recursive
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.74.3'
+          hugo-version: '0.75.1'
           extended: true
 
       - name: Setup Node
@@ -35,9 +36,8 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      
       - name: Build
-        run: hugo
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

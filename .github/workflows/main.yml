@@ -14,8 +14,11 @@ jobs:
         uses: actions/checkout@master
         with:
           submodules: recursive
-      - run: npm install 
+      - run: npm install
       - run: git submodule update --init --recursive
+      - run: cd themes
+      - run: git clone https://github.com/google/docsy
+      - run: cd .
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master
         with:

@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@master
         with:
           submodules: recursive
-      - run: npm install -g
+      - run: npm install 
       - run: git submodule update --init --recursive
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master

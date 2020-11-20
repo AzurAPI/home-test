@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://azurapi.github.io/home-test/"
 title = "AzurAPI"
 
 enableRobotsTXT = true

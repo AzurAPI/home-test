@@ -1,10 +1,10 @@
-baseURL = "https://azurapi.github.io/home-test/"
+baseURL = "/"
 title = "AzurAPI"
 
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+theme = "docsy"
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
